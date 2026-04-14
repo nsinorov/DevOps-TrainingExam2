@@ -1,0 +1,11 @@
+groups:
+- name: "probe-alerts"
+  rules:
+  - alert: "ProbeDurationExceedsThreshold"
+    expr: probe_duration_seconds > 0.01
+    for: 5s
+    labels:
+      severity: warning
+    annotations:
+      summary: "The probe duration exceeds the threshold for more than 5 seconds."
+      description: "Trigger an alert if the probe duration exceeds the threshold for more than 5 seconds."
